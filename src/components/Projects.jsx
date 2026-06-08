@@ -11,15 +11,15 @@ import { useState, useEffect } from 'react'
 
 // Static imports — add one line per file you place in the assets folders.
 // Images
-import imgFish   from '../assets/images/project-fish.jpeg?url'
-import imgAI      from '../assets/images/project-AI.jpg?url'
+import imgFish from '../assets/images/project-fish.jpeg?url'
+import imgAI from '../assets/images/project-AI.jpg?url'
 import imgSecurity from '../assets/images/project-security.jpg?url'
-import imgRfid    from '../assets/images/project-rfid.jpg?url'
-import imgWater   from '../assets/images/project-water.jpg?url'
+import imgRfid from '../assets/images/project-rfid.jpg?url'
+import imgWater from '../assets/images/project-water.jpg?url'
 import imgMedical from '../assets/images/project-medical.jpg?url'
 import imgLibrary from '../assets/images/project-library.jpg?url'
-import imgClinic  from '../assets/images/project-clinic.jpg?url'
-import imgDevops  from '../assets/images/image.png?url'
+import imgClinic from '../assets/images/project-clinic.jpg?url'
+import imgDevops from '../assets/images/image.png?url'
 // AI Project Gallery Images
 import aiImg1 from '../assets/images/AI project/image 1.png?url'
 import aiImg2 from '../assets/images/AI project/image 2.png?url'
@@ -29,19 +29,24 @@ import aiImg5 from '../assets/images/AI project/image 5.png?url'
 import aiImg6 from '../assets/images/AI project/image 6.png?url'
 import aiImg7 from '../assets/images/AI project/image 7.png?url'
 import aiImg8 from '../assets/images/AI project/image 8.png?url'
+// Flipper Zero Project Gallery Assets
+import flipperImg1 from '../assets/images/Flipper Zero project/image 1.jpeg?url'
+import flipperImg2 from '../assets/images/Flipper Zero project/image 2.jpeg?url'
+import flipperVid1 from '../assets/images/Flipper Zero project/video 1.mp4?url'
+import flipperVid2 from '../assets/images/Flipper Zero project/video 2.mp4?url'
 // Videos
-import vidRobot   from '../assets/videos/project-robot.mp4?url'
+import vidRobot from '../assets/videos/project-robot.mp4?url'
 
 const IMAGE_MAP = {
-  'project-fish':   imgFish,
-  'project-AI':    imgAI,
+  'project-fish': imgFish,
+  'project-AI': imgAI,
   'project-security': imgSecurity,
-  'project-rfid':     imgRfid,
-  'project-water':    imgWater,
-  'project-medical':  imgMedical,
-  'project-library':  imgLibrary,
-  'project-clinic':   imgClinic,
-  'project-devops':   imgDevops,
+  'project-rfid': imgRfid,
+  'project-water': imgWater,
+  'project-medical': imgMedical,
+  'project-library': imgLibrary,
+  'project-clinic': imgClinic,
+  'project-devops': imgDevops,
 }
 const VIDEO_MAP = {
   'project-robot': vidRobot,
@@ -58,20 +63,82 @@ const projects = [
     delay: '0.4s',
     gallery: [aiImg1, aiImg2, aiImg3, aiImg4, aiImg5, aiImg6, aiImg7, aiImg8],
     details: {
-      overview: 'Artificial Intelligence can often feel like a black box to the general public. To bridge this gap, I collaborated with a development team to build a suite of interactive applications designed to demystify complex AI mechanisms. Presented at the ReXtro Exhibition, this project provides an intuitive, visual breakdown of how Large Language Models (LLMs) and text-to-image models actually work under the hood.',
-      keyComponents: [
+      customSections: [
         {
-          title: 'WordWeaver (LLM Simulator)',
-          desc: 'An interactive educational tool that visualizes the mechanics of AI text generation. WordWeaver breaks down the token prediction process step-by-step, allowing users to see exactly how AI models formulate sentences and predict subsequent words.'
+          paragraphs: [
+            'Welcome to the World Weaver & Pixel Painter repository! This repository hosts two interactive AI exhibit applications designed to demystify generative AI technologies: Large Language Models (LLMs) and Stable Diffusion (Image Generation).'
+          ]
         },
         {
-          title: 'PixelPainter',
-          desc: 'A real-time visualizer for text-to-image generation. This application demonstrates the mechanics of Stable Diffusion by actively showing the denoising process, pulling back the curtain on how an AI transforms a simple text prompt into a cohesive piece of digital art.'
+          title: '🚀 Projects Included',
+          listType: 'number',
+          items: [
+            {
+              label: 'WordWeaver (LLM Simulator)',
+              paragraphs: [
+                'WordWeaver is an educational and interactive simulator that breaks down how Large Language Models work under the hood.'
+              ],
+              sublist: {
+                listType: 'circle',
+                items: [
+                  {
+                    label: 'What it does',
+                    text: 'It allows users to input prompts and visually watch how the LLM generates a response token-by-token. The application features a 3D simulated visualizer of tokens flowing through Transformer layers and displays a real-time graph of next-word probabilities, giving users a clear look into the model\'s decision-making process.'
+                  },
+                  {
+                    label: 'Tech Stack',
+                    sublist: {
+                      listType: 'circle',
+                      items: [
+                        { label: 'Backend/Logic', text: 'Python, FastAPI, Streamlit, PyTorch, Hugging Face `transformers`' },
+                        { label: 'Frontend', text: 'React.js (Vite)' },
+                        { label: 'AI Models', text: 'Runs on local Hugging Face models (e.g., `meta-llama/Llama-3.2-3B`) leveraging local GPU (CUDA) or CPU.' }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              label: 'PixelPainter (Stable Diffusion Exhibit)',
+              paragraphs: [
+                'PixelPainter is an interactive image generation exhibit that translates user imagination into visual art.'
+              ],
+              sublist: {
+                listType: 'circle',
+                items: [
+                  {
+                    label: 'What it does',
+                    text: 'Users provide a text prompt, and the application generates an image using the Stable Diffusion model. It demonstrates the diffusion process step-by-step, allowing users to see how an image evolves from pure noise to a complete picture.'
+                  },
+                  {
+                    label: 'Tech Stack',
+                    sublist: {
+                      listType: 'circle',
+                      items: [
+                        { label: 'Backend', text: 'Python, FastAPI, PyTorch, Diffusers' },
+                        { label: 'Frontend', text: 'React.js, Node.js' },
+                        { label: 'AI Models', text: 'Stable Diffusion v1.5 (`sd15`) accelerated by NVIDIA CUDA.' }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          title: '🛠️ Main Technical Highlights',
+          paragraphs: [
+            'Both projects emphasize running state-of-the-art AI locally without relying on external cloud APIs:'
+          ],
+          listType: 'bullet',
+          items: [
+            { label: 'Local Inference', text: 'Both projects use `PyTorch` to run large models directly on local hardware, utilizing NVIDIA CUDA for GPU acceleration (where available) to achieve real-time performance.' },
+            { label: 'Decoupled Architecture', text: 'Both projects employ a modern architecture with a decoupled Python `FastAPI` backend for heavy AI computation and a dynamic `React` frontend for a sleek, interactive user experience.' },
+            { label: 'Interactive Visualizations', text: 'Use of custom UI components (such as Streamlit metrics and Three.js 3D canvas) to visually explain complex AI concepts like tokens and diffusion steps.' }
+          ]
         }
-      ],
-      architecture: [
-        { label: 'Frontend', value: 'React (Vite) – Built a highly dynamic and responsive user interface to handle real-time visual updates and provide a rich user experience.' },
-        { label: 'Backend', value: 'Python (FastAPI) – Engineered a robust, high-performance backend to manage the computationally heavy AI processing and serve data seamlessly to the client.' }
       ],
       links: [
         { label: 'Source Code (GitHub)', url: 'https://lnkd.in/gK5sd_KW' }
@@ -90,23 +157,81 @@ const projects = [
     image: 'project-security',
     emoji: '🔐',
     delay: '0.05s',
+    gallery: [flipperImg1, flipperVid1, flipperVid2, flipperImg2],
     details: {
-      overview: 'Wireless protocols are the backbone of modern smart environments, but they are often vulnerable to simple exploits. This handheld security auditing tool runs on an ESP32 microcontroller, interfacing with custom transceiver modules to analyze and debug physical security systems. Designed for penetration testing and vulnerability assessment of RFID/NFC barriers and Sub-1GHz wireless controls.',
-      keyComponents: [
+      customSections: [
         {
-          title: 'Sub-1GHz Jammer & Replayer',
-          desc: 'Built using the CC1101 transceiver, capable of capturing, analyzing, and replaying remote control signals (e.g., gate openers, keyless entry systems) operating under 315/433 MHz.'
+          title: 'About the Project',
+          paragraphs: [
+            'This project is an ESP32-based multi-tool designed for hardware security testing and cybersecurity demonstrations. It features a standalone web-based interface that allows users to interact with RFID/NFC systems and sub-GHz radio frequencies. To demonstrate these capabilities in a practical scenario, the repository also includes the code for two mock target devices: an RFID-based door lock and a car remote signal receiver.'
+          ]
         },
         {
-          title: 'RFID/NFC Audit System',
-          desc: 'Utilizes the PN532 module to read, emulate, and clone cards (e.g., Mifare Classic 1K), facilitating the identification of weak key structures and protocol vulnerabilities.'
+          title: 'What Can This App Do?',
+          paragraphs: [
+            "The device acts as a portable, standalone hacking tool hosted entirely on an ESP32. By connecting to the device's Wi-Fi Access Point (e.g., ESP32-MultiTool or RFID-Hacker-AP), you can access a web dashboard to perform the following operations:"
+          ],
+          listType: 'bullet',
+          items: [
+            { label: 'RFID/NFC Scanning & Saving', text: 'Read UIDs from physical cards (like MIFARE Classic or MIFARE Ultralight/NTAG). The tool automatically saves the captured UIDs, card types, and timestamps to an internal database.' },
+            { label: 'Card Emulation', text: 'Select any captured UID from the web interface and command the PN532 module to emulate it. This allows you to "become" the card and bypass RFID locks without possessing the physical tag.' },
+            { label: 'Magic Card Writing (Gen1A)', text: 'Write captured UIDs to writable Magic Gen1A tags (Block 0 rewrite) directly from the web interface, creating a physical clone of the original card.' },
+            { label: 'Sub-GHz RF Jamming', text: 'Use the CC1101 transceiver to transmit noise at 315MHz. This can jam signals from remote controls, such as older car key fobs or garage door openers.' },
+            { label: 'Manage Database', text: "View, interact with, and delete saved cards from the ESP32's memory using the built-in JSON API." }
+          ]
+        },
+        {
+          title: 'Included Target Demonstrations',
+          paragraphs: [
+            'To test the multi-tool, the project includes firmware for two target devices:'
+          ],
+          listType: 'number',
+          items: [
+            { label: 'RFID Door Lock (Doar_Key_Lock.ino)', text: 'An Arduino-based mock lock using an MFRC522 reader, an I2C LCD screen, a relay, and a buzzer. It can be unlocked by authorized physical cards or by the ESP32 emulating an authorized card.' },
+            { label: 'Car Signal Receiver (Car_Design.ino)', text: 'A simple receiver setup with LEDs representing Lock, Unlock, Trunk, and Alarm states. It is used to demonstrate the effects of the 315MHz RF jammer.' }
+          ]
+        },
+        {
+          title: 'Technical Details & Hardware Stack',
+          paragraphs: [
+            'The multi-tool is built to efficiently manage multiple hardware peripherals using different hardware buses simultaneously.'
+          ],
+          subsections: [
+            {
+              title: 'Microcontrollers',
+              listType: 'bullet',
+              items: [
+                { label: 'ESP32', text: 'The core of the multi-tool. It hosts the Access Point, the Web Server, handles REST API routing, and runs concurrent tasks (e.g., FreeRTOS tasks for emulation). It utilizes both VSPI and HSPI hardware blocks to prevent SPI conflicts between the PN532 and CC1101 modules.' },
+                { label: 'Arduino (Uno/Nano)', text: 'Used to run the isolated target devices (Doar_Key_Lock and Car_Design).' }
+              ]
+            },
+            {
+              title: 'Hardware Modules',
+              listType: 'bullet',
+              items: [
+                { label: 'PN532 RFID/NFC Module', text: 'Connected via SPI (HSPI). Responsible for reading target tags, writing to Magic cards, and running the card emulation loop.' },
+                { label: 'CC1101 RF Transceiver (HW-863)', text: 'Connected via SPI (VSPI). Configured for ASK/OOK modulation at 315MHz. It transmits a continuous noise pattern when the jammer is activated.' },
+                { label: 'MFRC522 RFID Reader', text: "Used on the target door lock side to detect the ESP32's emulated signal or physical tags." },
+                { label: 'Peripherals', text: 'I2C LCD (16x2), 5V Relay, Active Buzzer, and indicator LEDs.' }
+              ]
+            },
+            {
+              title: 'Software & Libraries',
+              listType: 'bullet',
+              items: [
+                { label: 'Web & Networking', text: 'Native WiFi.h and WebServer.h for serving the HTML/JS frontend and handling HTTP GET requests.' },
+                { label: 'API & Data', text: 'ArduinoJson is used extensively to pass data between the web frontend and the ESP32 backend.' },
+                { label: 'RFID Control', text: 'PN532, PN532_SPI, and emulatetag libraries handle the low-level APDU commands, SAM configuration, and MIFARE authentication.' },
+                { label: 'RF Control', text: 'ELECHOUSE_CC1101_SRC_DRV library is used to initialize the CC1101 module, set transmission frequencies, and toggle between Tx (Transmit/Jam) and Rx modes.' },
+                { label: 'Multitasking', text: 'Uses FreeRTOS (xTaskCreatePinnedToCore) to pin the emulation loop to a specific CPU core, ensuring the web server remains responsive during active emulation.' }
+              ]
+            }
+          ]
         }
       ],
-      architecture: [
-        { label: 'Firmware', value: 'C++ / FreeRTOS – Multi-threaded task scheduling ensures real-time signal polling, hardware interrupts, and low-latency packet processing.' },
-        { label: 'Hardware Integration', value: 'ESP32 + CC1101 (SPI) + PN532 (I²C) with an OLED display and battery-powered portable enclosure.' }
+      links: [
+        { label: 'Source Code (GitHub)', url: 'https://github.com/Hasmitha0110/Build-a-multi-tool-hacking-device.git' }
       ],
-      links: [],
       acknowledgements: {}
     }
   },
@@ -274,7 +399,7 @@ const projects = [
       acknowledgements: {}
     }
   }
-  
+
 ]
 
 function ProjectMedia({ project }) {
@@ -302,11 +427,49 @@ function ProjectMedia({ project }) {
   )
 }
 
+const formatText = (text) => {
+  if (!text) return '';
+  if (typeof text !== 'string') return text;
+  const parts = text.split(/(`[^`]+`)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('`') && part.endsWith('`')) {
+      return <code key={i} className="inline-code">{part.slice(1, -1)}</code>;
+    }
+    return part;
+  });
+}
+
+const RenderList = ({ items, type }) => {
+  if (!items || items.length === 0) return null;
+  const ListTag = type === 'number' ? 'ol' : 'ul';
+  const listStyleType = type === 'number' ? 'decimal' : (type === 'circle' ? 'circle' : 'disc');
+
+  return (
+    <ListTag className={`modal-${type}-list`} style={{ listStyleType, paddingLeft: '20px', marginBottom: '16px' }}>
+      {items.map((item, itemIdx) => (
+        <li key={itemIdx} className="modal-text" style={{ marginBottom: '8px' }}>
+          {item.label ? <strong>{formatText(item.label)}: </strong> : null}
+          {item.text ? formatText(item.text) : null}
+          {item.paragraphs && item.paragraphs.map((para, pIdx) => (
+            <p key={pIdx} className="modal-text" style={{ marginTop: '8px', marginBottom: '8px' }}>
+              {formatText(para)}
+            </p>
+          ))}
+          {item.sublist && (
+            <RenderList items={item.sublist.items} type={item.sublist.listType || 'circle'} />
+          )}
+        </li>
+      ))}
+    </ListTag>
+  );
+}
+
 function ProjectModal({ project, onClose }) {
   const videoSrc = VIDEO_MAP[project.video]
   const imageSrc = IMAGE_MAP[project.image]
   const details = project.details || { overview: project.desc }
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [fullscreenMedia, setFullscreenMedia] = useState(null)
 
   const prevSlide = () => {
     if (!project.gallery) return
@@ -327,11 +490,17 @@ function ProjectModal({ project, onClose }) {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') {
+        if (fullscreenMedia) {
+          setFullscreenMedia(null)
+        } else {
+          onClose()
+        }
+      }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [onClose])
+  }, [onClose, fullscreenMedia])
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -342,18 +511,42 @@ function ProjectModal({ project, onClose }) {
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        
+
         <div className="modal-media-header">
+          {/* Fullscreen Expand Button */}
+          {(project.gallery || videoSrc || imageSrc) && (
+            <button
+              className="modal-fullscreen-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                const currentMedia = project.gallery ? project.gallery[currentSlide] : (videoSrc || imageSrc);
+                setFullscreenMedia(currentMedia);
+              }}
+              aria-label="View fullscreen"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+              </svg>
+            </button>
+          )}
+
           {project.gallery && project.gallery.length > 0 ? (
             <div className="modal-gallery-slider">
               <div className="modal-slider-track" style={{ transform: `translateX(-${currentSlide * 100}%)`, display: 'flex', width: '100%', height: '100%', transition: 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)' }}>
-                {project.gallery.map((imgSrc, i) => (
-                  <div key={i} className="modal-slider-slide" style={{ flex: '0 0 100%', width: '100%', height: '100%' }}>
-                    <img src={imgSrc} alt={`${project.title} - Slide ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                  </div>
-                ))}
+                {project.gallery.map((src, i) => {
+                  const isVid = typeof src === 'string' && src.split('?')[0].split('#')[0].toLowerCase().endsWith('.mp4');
+                  return (
+                    <div key={i} className="modal-slider-slide" style={{ flex: '0 0 100%', width: '100%', height: '100%' }}>
+                      {isVid ? (
+                        <video src={src} autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                      ) : (
+                        <img src={src} alt={`${project.title} - Slide ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                      )}
+                    </div>
+                  )
+                })}
               </div>
-              
+
               {project.gallery.length > 1 && (
                 <>
                   <button className="modal-slider-prev" onClick={(e) => { e.stopPropagation(); prevSlide(); }} aria-label="Previous image">
@@ -366,11 +559,11 @@ function ProjectModal({ project, onClose }) {
                       <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                   </button>
-                  
+
                   <div className="modal-slider-dots">
                     {project.gallery.map((_, i) => (
-                      <button 
-                        key={i} 
+                      <button
+                        key={i}
                         className={`modal-slider-dot ${currentSlide === i ? 'active' : ''}`}
                         onClick={(e) => { e.stopPropagation(); setCurrentSlide(i); }}
                         aria-label={`Go to slide ${i + 1}`}
@@ -395,23 +588,52 @@ function ProjectModal({ project, onClose }) {
         </div>
 
         <div className="modal-body-layout">
-          <section className="modal-sec">
-            <h3 className="modal-sec-title">Project Overview</h3>
-            <p className="modal-text">{details.overview}</p>
-          </section>
+          {details.customSections ? (
+            details.customSections.map((sec, idx) => (
+              <section key={idx} className="modal-sec">
+                {sec.title && <h3 className="modal-sec-title">{sec.title}</h3>}
+                
+                {sec.paragraphs && sec.paragraphs.map((para, pIdx) => (
+                  <p key={pIdx} className="modal-text" style={{ marginBottom: '16px' }}>{formatText(para)}</p>
+                ))}
 
-          {details.keyComponents && details.keyComponents.length > 0 && (
-            <section className="modal-sec">
-              <h3 className="modal-sec-title">Key Components</h3>
-              <div className="modal-components-list">
-                {details.keyComponents.map((comp, i) => (
-                  <div key={i} className="modal-component-card">
-                    <h4 className="modal-component-title">{comp.title}</h4>
-                    <p className="modal-text">{comp.desc}</p>
+                {sec.listType && (
+                  <RenderList items={sec.items} type={sec.listType} />
+                )}
+
+                {sec.subsections && sec.subsections.map((subsec, subIdx) => (
+                  <div key={subIdx} className="modal-subsection" style={{ marginTop: '20px', marginBottom: '16px' }}>
+                    <h4 className="modal-subsection-title" style={{ fontFamily: 'var(--font-head)', fontSize: '1.05rem', fontWeight: '700', color: 'var(--white)', marginBottom: '12px' }}>
+                      {subsec.title}
+                    </h4>
+                    {subsec.listType && (
+                      <RenderList items={subsec.items} type={subsec.listType} />
+                    )}
                   </div>
                 ))}
-              </div>
-            </section>
+              </section>
+            ))
+          ) : (
+            <>
+              <section className="modal-sec">
+                <h3 className="modal-sec-title">Project Overview</h3>
+                <p className="modal-text">{details.overview}</p>
+              </section>
+
+              {details.keyComponents && details.keyComponents.length > 0 && (
+                <section className="modal-sec">
+                  <h3 className="modal-sec-title">Key Components</h3>
+                  <div className="modal-components-list">
+                    {details.keyComponents.map((comp, i) => (
+                      <div key={i} className="modal-component-card">
+                        <h4 className="modal-component-title">{comp.title}</h4>
+                        <p className="modal-text">{comp.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </>
           )}
 
           <section className="modal-sec">
@@ -423,7 +645,7 @@ function ProjectModal({ project, onClose }) {
             </div>
           </section>
 
-          {details.architecture && details.architecture.length > 0 && (
+          {!details.customSections && details.architecture && details.architecture.length > 0 && (
             <section className="modal-sec">
               <h3 className="modal-sec-title">Technical Architecture</h3>
               <div className="modal-architecture-list">
@@ -474,6 +696,24 @@ function ProjectModal({ project, onClose }) {
             </section>
           )}
         </div>
+
+        {fullscreenMedia && (
+          <div className="fullscreen-media-overlay" onClick={() => setFullscreenMedia(null)}>
+            <button className="fullscreen-media-close" onClick={() => setFullscreenMedia(null)} aria-label="Close fullscreen">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <div className="fullscreen-media-content" onClick={(e) => e.stopPropagation()}>
+              {typeof fullscreenMedia === 'string' && fullscreenMedia.split('?')[0].split('#')[0].toLowerCase().endsWith('.mp4') ? (
+                <video src={fullscreenMedia} autoPlay loop playsInline controls style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+              ) : (
+                <img src={fullscreenMedia} alt="Fullscreen preview" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -486,7 +726,7 @@ export default function Projects() {
     <section id="projects">
       <div className="reveal from-up">
         <div className="section-label">What I Build</div>
-        <h2 className="section-title">Featured <span style={{ color:'var(--cyan)' }}>Projects</span></h2>
+        <h2 className="section-title">Featured <span style={{ color: 'var(--cyan)' }}>Projects</span></h2>
         <p className="section-sub">
           Hardware-first projects spanning embedded firmware, IoT systems, AI inference,
           and full-stack web — always built from the ground up.
@@ -494,9 +734,9 @@ export default function Projects() {
       </div>
       <div className="projects-grid">
         {projects.map((p) => (
-          <div 
-            key={p.title} 
-            className="project-card reveal from-up" 
+          <div
+            key={p.title}
+            className="project-card reveal from-up"
             style={{ transitionDelay: p.delay, cursor: 'pointer' }}
             onClick={() => setSelectedProject(p)}
           >
