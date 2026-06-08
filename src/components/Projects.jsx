@@ -167,59 +167,6 @@ const projects = [
     }
   },
   {
-    badge: 'badge-security', badgeLabel: 'Cybersecurity',
-    title: 'Network Vulnerability Demo',
-    desc: 'Live cybersecurity simulation educating attendees on public network risks. Custom Reverse TCP payloads via msfvenom deployed through Kali Linux and the Metasploit Framework.',
-    tags: ['Kali Linux', 'Metasploit', 'msfvenom', 'Networking'],
-    emoji: '🛡️',
-    delay: '0.2s',
-    details: {
-      overview: 'Security awareness is the first line of defense. This demonstration showcases the mechanics of active network intrusion simulations on insecure public Wi-Fi access points to educate IT professionals on the importance of payload detection, secure protocols, and firewall rules.',
-      keyComponents: [
-        {
-          title: 'Intrusion Simulation',
-          desc: 'Shows the deployment of custom payloads and session handling in isolated VM environments.'
-        },
-        {
-          title: 'Packet Analysis',
-          desc: 'Demonstrates unencrypted packet sniffing to visualize how usernames/passwords can be intercepted in plain text.'
-        }
-      ],
-      architecture: [
-        { label: 'Platform & Tools', value: 'Kali Linux, Metasploit Framework, msfvenom, Wireshark, isolated hypervisors.' }
-      ],
-      links: [],
-      acknowledgements: {}
-    }
-  },
-  {
-    badge: 'badge-java', badgeLabel: 'Java',
-    title: 'LAN-Based Polling & Voting System',
-    desc: 'Secure networked polling application using Java multi-threading for concurrent client handling. High-availability socket communication across multiple Linux VM hosts with low-latency guarantees.',
-    tags: ['Java', 'Multi-threading', 'Socket IO', 'Linux VM'],
-    emoji: '🗳️',
-    delay: '0.25s',
-    details: {
-      overview: 'Distributed systems require robust synchronization and fault tolerance. This project is a multi-client polling network engineered in Java, designed to handle concurrent connections over local area networks with strict data consistency and low latencies.',
-      keyComponents: [
-        {
-          title: 'Multi-threaded Server',
-          desc: 'Concurrently handles hundreds of socket connections utilizing Java thread pools and synchronized database access locks.'
-        },
-        {
-          title: 'Admin Console',
-          desc: 'Visual dashboard showing live tallying of votes and connection metrics.'
-        }
-      ],
-      architecture: [
-        { label: 'Language & Networking', value: 'Java SE, custom Socket IO protocols, multi-threading APIs.' },
-        { label: 'Deployment', value: 'Multiple Linux VM hosts with simulated network partitions.' }
-      ],
-      links: [],
-      acknowledgements: {}
-    }
-  },
-  {
     badge: 'badge-medical', badgeLabel: 'Medical',
     title: 'Endoscopy Media Management Software',
     desc: 'Windows desktop application (.NET 9.0 / WPF) for biomedical clients capturing live video feeds via OpenCV. SQLite persistence layer maps captured media to patient profiles with full CRUD.',
@@ -273,7 +220,61 @@ const projects = [
       links: [],
       acknowledgements: {}
     }
+  },
+  {
+    badge: 'badge-security', badgeLabel: 'Cybersecurity',
+    title: 'Network Vulnerability Demo',
+    desc: 'Live cybersecurity simulation educating attendees on public network risks. Custom Reverse TCP payloads via msfvenom deployed through Kali Linux and the Metasploit Framework.',
+    tags: ['Kali Linux', 'Metasploit', 'msfvenom', 'Networking'],
+    emoji: '🛡️',
+    delay: '0.2s',
+    details: {
+      overview: 'Security awareness is the first line of defense. This demonstration showcases the mechanics of active network intrusion simulations on insecure public Wi-Fi access points to educate IT professionals on the importance of payload detection, secure protocols, and firewall rules.',
+      keyComponents: [
+        {
+          title: 'Intrusion Simulation',
+          desc: 'Shows the deployment of custom payloads and session handling in isolated VM environments.'
+        },
+        {
+          title: 'Packet Analysis',
+          desc: 'Demonstrates unencrypted packet sniffing to visualize how usernames/passwords can be intercepted in plain text.'
+        }
+      ],
+      architecture: [
+        { label: 'Platform & Tools', value: 'Kali Linux, Metasploit Framework, msfvenom, Wireshark, isolated hypervisors.' }
+      ],
+      links: [],
+      acknowledgements: {}
+    }
+  },
+  {
+    badge: 'badge-java', badgeLabel: 'Java',
+    title: 'LAN-Based Polling & Voting System',
+    desc: 'Secure networked polling application using Java multi-threading for concurrent client handling. High-availability socket communication across multiple Linux VM hosts with low-latency guarantees.',
+    tags: ['Java', 'Multi-threading', 'Socket IO', 'Linux VM'],
+    emoji: '🗳️',
+    delay: '0.25s',
+    details: {
+      overview: 'Distributed systems require robust synchronization and fault tolerance. This project is a multi-client polling network engineered in Java, designed to handle concurrent connections over local area networks with strict data consistency and low latencies.',
+      keyComponents: [
+        {
+          title: 'Multi-threaded Server',
+          desc: 'Concurrently handles hundreds of socket connections utilizing Java thread pools and synchronized database access locks.'
+        },
+        {
+          title: 'Admin Console',
+          desc: 'Visual dashboard showing live tallying of votes and connection metrics.'
+        }
+      ],
+      architecture: [
+        { label: 'Language & Networking', value: 'Java SE, custom Socket IO protocols, multi-threading APIs.' },
+        { label: 'Deployment', value: 'Multiple Linux VM hosts with simulated network partitions.' }
+      ],
+      links: [],
+      acknowledgements: {}
+    }
   }
+  
 ]
 
 function ProjectMedia({ project }) {
