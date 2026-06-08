@@ -28,11 +28,6 @@ function Avatar() {
         />
         <span className="avatar-initials" style={{ position:'absolute' }}>DWP</span>
       </div>
-      <div className="floating-card">
-        <div className="float-card-icon">⚡</div>
-        <div className="float-card-label">ESP32</div>
-        <div className="float-card-value">FreeRTOS</div>
-      </div>
     </div>
   )
 }
