@@ -34,6 +34,11 @@ import flipperImg1 from '../assets/images/Flipper Zero project/image 1.jpeg?url'
 import flipperImg2 from '../assets/images/Flipper Zero project/image 2.jpeg?url'
 import flipperVid1 from '../assets/images/Flipper Zero project/video 1.mp4?url'
 import flipperVid2 from '../assets/images/Flipper Zero project/video 2.mp4?url'
+// RFID Medical Records Gallery Assets
+import rfidImg1 from '../assets/images/RFID Medical Records project/image 1.png?url'
+import rfidImg2 from '../assets/images/RFID Medical Records project/image 2.png?url'
+import rfidImg3 from '../assets/images/RFID Medical Records project/image 3.png?url'
+import rfidImg4 from '../assets/images/RFID Medical Records project/image 4.png?url'
 // Videos
 import vidRobot from '../assets/videos/project-robot.mp4?url'
 
@@ -259,7 +264,9 @@ const projects = [
         { label: 'Microcontroller', value: 'Microchip ATmega328P (Bare-metal C).' },
         { label: 'Peripherals', value: 'Custom bit-banged I²C/TWI drivers, Timer1 PWM configuration, software distance measurement routines.' }
       ],
-      links: [],
+      links: [
+        { label: 'Source Code (GitHub)', url: 'https://github.com/DilshanWMP/IoT-Based-Fish-Tank-Feeding-and-Monitoring-System.git' }
+      ],
       acknowledgements: {}
     }
   },
@@ -271,6 +278,7 @@ const projects = [
     image: 'project-rfid',
     emoji: '🪪',
     delay: '0.15s',
+    gallery: [rfidImg1, rfidImg2, rfidImg3, rfidImg4],
     details: {
       overview: 'Accessing medical records in remote or disaster-stricken areas is a critical challenge. Smart HealthID solves this by storing compressed medical records directly on RFID/NFC smart cards. It runs local Wi-Fi access points that allow practitioners to retrieve records using simple web interfaces without internet access.',
       keyComponents: [
@@ -287,7 +295,9 @@ const projects = [
         { label: 'Hardware', value: 'ESP8266/ESP32, RC522 RFID Reader, custom client interface.' },
         { label: 'Protocol', value: 'Local Wi-Fi Access Point, REST APIs, JSON compression.' }
       ],
-      links: [],
+      links: [
+        { label: 'Source Code (GitHub)', url: 'https://github.com/Hasmitha0110/EM23_RedClave.git' }
+      ],
       acknowledgements: {}
     }
   },
@@ -315,7 +325,9 @@ const projects = [
         { label: 'Framework', value: 'C# .NET 9.0, WPF (Windows Presentation Foundation) with MVVM pattern.' },
         { label: 'Database & Libraries', value: 'OpenCV (EmguCV), SQLite DB for patient data management.' }
       ],
-      links: [],
+      links: [
+        { label: 'Source Code (GitHub)', url: 'https://github.com/DilshanWMP/Software-Project.git' }
+      ],
       acknowledgements: {}
     }
   },
@@ -342,7 +354,9 @@ const projects = [
       architecture: [
         { label: 'Technologies', value: 'AWS, Docker, Jenkins, Terraform, MongoDB, Express, React, Node.' }
       ],
-      links: [],
+      links: [
+        { label: 'Source Code (GitHub)', url: 'https://github.com/DilshanWMP/ToDo-app.git' }
+      ],
       acknowledgements: {}
     }
   },
@@ -395,7 +409,9 @@ const projects = [
         { label: 'Language & Networking', value: 'Java SE, custom Socket IO protocols, multi-threading APIs.' },
         { label: 'Deployment', value: 'Multiple Linux VM hosts with simulated network partitions.' }
       ],
-      links: [],
+      links: [
+        { label: 'Source Code (GitHub)', url: 'https://github.com/DilshanWMP/Polling_system.git' }
+      ],
       acknowledgements: {}
     }
   }
